@@ -1,0 +1,7 @@
+- disable snap for ubuntu
+- AppImage files: Obsidian, Telegram
+- wireguard vpn
+- ssh
+- git
+- zsh
+- base apt: wget, vim, codei, vlc

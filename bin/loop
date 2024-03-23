@@ -1,0 +1,6 @@
+#! /bin/bash
+
+MAX=$1
+for (( i=0; i<MAX; i++ )) ; {
+   $2
+}

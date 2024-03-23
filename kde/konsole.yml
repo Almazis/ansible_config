@@ -1,0 +1,60 @@
+- name: Specify profile for Konsole
+  community.general.kdeconfig:
+    path: ~/.config/konsolerc
+    values:
+      - groups: [Desktop Entry]
+        key: DefaultProfile
+        value: 'Profile1.profile'
+      - groups: [KonsoleWindow]
+        key: RememberWindowSize
+        value: 'false'
+      - groups: [SplitView]
+        key: SplitDragHandleSize
+        value: 'SplitDragHandleLarge'
+      - groups: [SplitView]
+        key: SplitViewVisibility
+        value: 'AlwaysShowSplitHeader'
+    backup: true
+  tags:
+    - KDE
+- name: konsole settings
+  community.general.kdeconfig:
+    path: ~/.local/share/konsole/Profile1.profile
+    values:
+      - groups: [General]
+        key: Command
+        value: '/bin/zsh'
+      - groups: [General]
+        key: DimWhenInactive
+        value: 'true'
+      - groups: [General]
+        key: ShowTerminalSizeHint
+        value: 'false'
+      - groups: [Scrolling]
+        key: HistoryMode
+        value: '2'
+    backup: true
+  tags:
+    - KDE
+- name: konsole hotkeys
+  community.general.xml:
+    path: ~/.local/share/kxmlgui5/konsole/konsoleui.rc
+    xpath: /gui/ActionProperties
+    add_children:  
+    - Action shortcut="" name="clone-tab"
+    - Action shortcut="Alt+Up" name="focus-view-above"
+    - Action shortcut="Alt+Down" name="focus-view-below"
+    - Action shortcut="Alt+Left" name="focus-view-left"
+    - Action shortcut="Alt+Right" name="focus-view-right"
+    - Action shortcut="" name="help_contents"
+    - Action shortcut="" name="move-tab-to-left"
+    - Action shortcut="" name="move-tab-to-right"
+    - Action shortcut="Ctrl+T" name="new-tab"
+    - Action shortcut="Ctrl+PgDown" name="next-tab"
+    - Action shortcut="Ctrl+M" name="options_show_menubar"
+    - Action shortcut="Shift+Right" name="split-view-left-right"
+    - Action shortcut="Shift+Down" name="split-view-top-bottom"
+    - Action shortcut="Alt+M" name="toggle-maximize-current-view"
+    backup: true
+  tags:
+    - KDE

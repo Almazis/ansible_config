@@ -1,0 +1,22 @@
+- name: Global Hotkeys
+  community.general.kdeconfig:
+    path: ~/.config/kglobalshortcutsrc
+    values:
+      - groups: [org.kde.konsole.desktop]
+        key: _launch
+        value: 'Meta+R'
+      - groups: [kwin]
+        key: Switch One Desktop to the Left
+        value: 'Ctrl+Alt+Left'
+      - groups: [kwin]
+        key: Switch One Desktop to the Right
+        value: 'Ctrl+Alt+Right'
+      - groups: [kwin]
+        key: ShowDesktopGrid
+        value: 'Ctrl+Alt+Up'
+      - groups: [kwin]
+        key: Window Close
+        value: 'Ctrl+Shift+Q'
+    backup: true
+  tags:
+    - KDE
